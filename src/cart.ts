@@ -1,3 +1,5 @@
+import { formatPrice } from './format';
+
 export interface Item {
   name: string;
   price: number;
@@ -14,6 +16,10 @@ export class ShoppingCart {
 
   count(): number {
     return this.items.length;
+  }
+
+  totalLabel(): string {
+    return formatPrice(this.total());
   }
 
   total(): number {

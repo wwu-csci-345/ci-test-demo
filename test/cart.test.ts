@@ -41,4 +41,9 @@ describe('ShoppingCart', () => {
     expect(() => cart.add({ name: 'pen', price: 2, qty: 0 }))
       .toThrow('Quantity must be positive');
   });
+
+  it('formats the total as dollars', () => {
+    cart.add({ name: 'pen', price: 2, qty: 3 });
+    expect(cart.totalLabel()).toBe('$6.00');
+  });
 });
