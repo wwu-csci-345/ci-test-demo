@@ -12,6 +12,10 @@ export class ShoppingCart {
     this.items.push(item);
   }
 
+  addByName(name: string, price: number): void {
+    this.items.push({ name, price });
+  }
+
   count(): number {
     return this.items.length;
   }
