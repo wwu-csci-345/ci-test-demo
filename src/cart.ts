@@ -1,3 +1,5 @@
+export const TAX_RATE = 0.1;
+
 export interface Item {
   name: string;
   price: number;
@@ -17,6 +19,7 @@ export class ShoppingCart {
   }
 
   total(): number {
-    return this.items.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const sum = this.items.reduce((s, i) => s + i.price * i.qty, 0);
+    return sum * (1 + TAX_RATE);
   }
 }

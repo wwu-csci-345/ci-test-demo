@@ -30,7 +30,7 @@ describe('ShoppingCart', () => {
     const total = cart.total();
 
     // Assert
-    expect(total).toBe(16);
+    expect(total).toBeCloseTo(17.6); // 16 + 10% tax
   });
 
   it('accepts a quantity of 1', () => {
