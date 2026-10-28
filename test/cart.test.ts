@@ -41,4 +41,9 @@ describe('ShoppingCart', () => {
     expect(() => cart.add({ name: 'pen', price: 2, qty: 0 }))
       .toThrow('Quantity must be positive');
   });
+
+  it('rounds the total to cents', () => {
+    cart.add({ name: 'gum', price: 0.1, qty: 3 }); // 0.1 * 3 = 0.30000000000000004
+    expect(cart.total()).toBe(0.3);
+  });
 });

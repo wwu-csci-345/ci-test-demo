@@ -17,6 +17,7 @@ export class ShoppingCart {
   }
 
   total(): number {
-    return this.items.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const sum = this.items.reduce((s, i) => s + i.price * i.qty, 0);
+    return Math.round(sum * 100) / 100;
   }
 }
