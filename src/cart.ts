@@ -17,6 +17,6 @@ export class ShoppingCart {
   }
 
   total(): number {
-    return this.items.reduce((sum, i) => sum + i.price * i.qty, 0);
+    return this.items.reduce((sum, i) => sum + i.price, 0);
   }
 }
