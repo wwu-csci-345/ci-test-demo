@@ -1,11 +1,17 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { ShoppingCart } from '../src/cart';
+import { ShoppingCart, DiscountService } from '../src/cart';
+
+class NoDiscounts implements DiscountService {
+  rateFor(): number {
+    return 0;
+  }
+}
 
 describe('ShoppingCart', () => {
   let cart: ShoppingCart;
 
   beforeEach(() => {
-    cart = new ShoppingCart();
+    cart = new ShoppingCart(new NoDiscounts());
   });
 
   it('starts empty', () => {
